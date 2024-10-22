@@ -1,0 +1,15 @@
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/bin/Debug/net7.0/ConsoleApp
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/bin/Debug/net7.0/ConsoleApp.deps.json
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/bin/Debug/net7.0/ConsoleApp.runtimeconfig.json
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/bin/Debug/net7.0/ConsoleApp.dll
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/bin/Debug/net7.0/ConsoleApp.pdb
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/obj/Debug/net7.0/ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/obj/Debug/net7.0/ConsoleApp.AssemblyInfoInputs.cache
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/obj/Debug/net7.0/ConsoleApp.AssemblyInfo.cs
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/obj/Debug/net7.0/ConsoleApp.csproj.CoreCompileInputs.cache
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/obj/Debug/net7.0/ConsoleApp.sourcelink.json
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/obj/Debug/net7.0/ConsoleApp.dll
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/obj/Debug/net7.0/refint/ConsoleApp.dll
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/obj/Debug/net7.0/ConsoleApp.pdb
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/obj/Debug/net7.0/ConsoleApp.genruntimeconfig.cache
+/Users/viktoriafursa/Desktop/ConsoleTest/ConsoleApp/obj/Debug/net7.0/ref/ConsoleApp.dll
