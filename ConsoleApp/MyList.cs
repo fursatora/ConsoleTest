@@ -64,6 +64,11 @@ public class MyList
 
     public void RemoveAt(int index)
     {
+        if (index<0 || index>_array.Length-1)
+        {
+            Console.WriteLine("Ошибка введения индекса");
+            return;
+        }
        
         for (int i = index; i < _count - 1; i++)
         {

@@ -11,8 +11,8 @@
 
         myList.Insert(0, -1);
         myList.Remove(2);
-        myList.RemoveAt(2);
-        myList.Clear();
+        myList.RemoveAt(4);
+        //myList.Clear();
         
         Console.WriteLine(myList.ToString());
     }
