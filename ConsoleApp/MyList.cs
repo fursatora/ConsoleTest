@@ -1,20 +1,18 @@
-
-public class MyList
+public class MyList<T> where T : IComparable<T>
 {
-    private int[] _array = new int[4];
+    private T[] _array = new T[4];
     private int _count = 0;
-
+    
     public int Count 
     {
         get { return _count; }
     }
 
-    public void Add(int item) 
+    public void Add(T item) 
     {
-         if (_count >= _array.Length)
+        if (_count >= _array.Length)
         {
-            int[] _new_array = new int[_array.Length + 1];
-            
+            T[] _new_array = new T[_array.Length * 2];
             for (int i = 0; i < _array.Length; i++)
             {
                 _new_array[i] = _array[i];
@@ -26,12 +24,13 @@ public class MyList
         _count++;  
     }
 
-    public void Remove(int item) {
+    public void Remove(T item) 
+    {
         int _remove_index = -1;
 
         for (int i = 0; i < _count; i++)
         {
-            if (_array[i] == item)
+            if (_array[i].Equals(item))
             {
                 _remove_index = i;
                 break;  
@@ -47,87 +46,125 @@ public class MyList
         {
             _array[i] = _array[i + 1];
         }
-            _count--;
 
-        
-
-        int[] _new_array = new int[_array.Length - 1];
-        for (int i = 0; i < _new_array.Length; i++)
-        {
-            _new_array[i] = _array[i];
-        }
-
-        _array = _new_array;
-        
+        _count--;
     }
-        
 
     public void RemoveAt(int index)
     {
-        if (index<0 || index>_array.Length-1)
+        if (index < 0 || index >= _count)
         {
             Console.WriteLine("Ошибка введения индекса");
             return;
         }
-       
+
         for (int i = index; i < _count - 1; i++)
         {
             _array[i] = _array[i + 1];
         }
 
-        int[] _new_array = new int[_array.Length - 1];
-        for (int i = 0; i < _new_array.Length; i++)
-        {
-            _new_array[i] = _array[i];
-        }
-
-        _array = _new_array;
         _count--;
-
     }
 
-    public void Insert(int index, int item)
-    {   if (index<0 || index>_array.Length)
+    public void Insert(int index, T item)
+    {
+        if (index < 0 || index > _count)
         {
             Console.WriteLine("Ошибка введения индекса");
             return;
         }
 
-        if (index==_array.Length){
-            Add(item);
-            return;
-        }
-        if (index<_array.Length)
+        if (_count >= _array.Length)
         {
-            int[] _new_array = new int[_array.Length + 1];
-            for (int i=0; i<index; i++)
+            T[] _new_array = new T[_array.Length * 2];
+            for (int i = 0; i < _array.Length; i++)
             {
-                _new_array[i]=_array[i];
+                _new_array[i] = _array[i];
             }
-
-            _count++;
-            _new_array[index]=item;
-
-            for (int i=index; i<_array.Length; i++)
-            {
-                _new_array[i+1]=_array[i];
-            }
-
             _array = _new_array;
         }
-    }
 
-
-    public void Clear() {
-        for (int i=0; i<_array.Length+1; i++){
-            RemoveAt(i);
-            _count--;
+        for (int i = _count; i > index; i--)
+        {
+            _array[i] = _array[i - 1];
         }
-        return;
+
+        _array[index] = item;
+        _count++;
     }
 
-    public string ToString() 
-    { 
-        return string.Join(", ", _array); 
+    public void Clear() 
+    {
+        _count = 0;
+        _array = new T[4]; 
     }
+
+    public void ForEach(Action<T> action) 
+    { 
+        for (int i = 0; i < _count; i++) 
+        { 
+            action(_array[i]); 
+        } 
+    }
+
+    public int IndexOf(T item) 
+    { 
+        for (int i = 0; i < _count; i++) 
+        { 
+            if (_array[i].Equals(item)) 
+            { 
+                return i;
+            }
+        }
+        return -1;
+    } 
+
+    public T Find(Predicate<T> match)
+    {
+        T foundItem = default; 
+        bool itemFound = false; 
+
+        ForEach(item => 
+        {
+            if (match(item))
+            {
+                foundItem = item; 
+                itemFound = true; 
+            }
+        });
+
+        if (itemFound)
+        {
+            return foundItem; 
+        }
+
+        Console.WriteLine("значение не найдено");
+        return default(T); 
+    }
+
+public void Sort()
+{
+    for (int i = 0; i < _count - 1; i++)
+    {
+        for (int j = 0; j < _count - 1 - i; j++)
+        {
+            if (_array[j].CompareTo(_array[j + 1]) > 0)
+            {
+                T _temp = _array[j];
+                _array[j] = _array[j + 1];
+                _array[j + 1] = _temp;
+            }
+        }
+    }
+}
+
+
+    public override string ToString() 
+    { 
+        T[] tempArray = new T[_count];
+        Array.Copy(_array, tempArray, _count);
+        return string.Join(", ", tempArray);
+    }
+
+
 }
